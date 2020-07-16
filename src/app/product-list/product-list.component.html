@@ -1,0 +1,67 @@
+<!-- <div class="row product-list">
+
+    <div class="col-sm-12 col-md-6 col-lg-4 product-list__item">
+      <div class="card mb-4 shadow-sm pd-5">
+        <div *ngFor="let product of products;index as productId;">
+
+          <div class="product-list__image">
+            <img class="card-img-top" src="{{product.img_url}}" alt="Card image cap">
+          </div>
+
+
+          <div class="card-body" *ngIf="product.description">
+            <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+              {{ product.name }}
+            </a>
+            Description: {{ product.description }}:{{ product.name }}
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-sm"
+              [ngClass]="this.isAdded[productId] ? 'btn-success' : 'btn-outline-secondary'"
+              (click)="addToCart($event, product.id)">Add To Cart</button>&nbsp;&nbsp;
+            <button (click)="share()">
+              Share
+            </button>
+          </div>
+          <app-product-alerts [product]="product" (notify)="onNotify()">
+          </app-product-alerts>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- <div class="container"> -->
+<div class="card">
+  <div class="row">
+    <div class="col-md-12">
+      <i class="fa fa-sort" style="font-size: 42px;margin-left: 100px;margin-top: 12px;">sort</i>
+      <span class="vl"></span>
+      <i class="fa fa-filter" style="font-size: 42px;float: right;margin-right: 100px;margin-top: 12px;">Filter</i>
+    </div>
+  </div>
+  <hr >
+  <div class="row product-list" style="margin: 1em 0;">
+
+    <!-- START : Product Card -->
+    <div class="col-sm-12 col-md-6 col-lg-4 product-list__item" *ngFor="let product of products;index as productId;">
+      <div class="card mb-4 shadow-sm pd-5">
+        <div class="product-list__image">
+          <img class="card-img-top" src="{{product.img_url}}" alt="Card image cap">
+        </div>
+
+        <div class="card-body">
+          <h4 style="margin-top: 13px;">{{product.name}}</h4>
+          <p class="card-text"><b>Price :₹{{ product.dis_price }}</b>&nbsp;&nbsp;&nbsp;&nbsp;<b><del>{{ product.price }}</del></b>&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:green">{{ product.discount }}% off</b></p>
+
+          <div class="text-center">
+            <button type="button" class="btn btn-sm"
+              [ngClass]="this.isAdded[productId] ? 'btn-success' : 'btn-outline-secondary'"
+              (click)="addToCart($event, product.id)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END : Product Card -->
+
+  </div>
+</div>
